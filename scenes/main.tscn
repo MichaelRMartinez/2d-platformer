@@ -228,3 +228,23 @@ position = Vector2(1441, 412)
 
 [node name="Collectable8" parent="CollectablesGroup" instance=ExtResource("4_n6qgk")]
 position = Vector2(1586, 318)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="UI"]
+offset_left = 22.0
+offset_top = 13.0
+offset_right = 167.0
+offset_bottom = 58.0
+
+[node name="PointsLabel" type="Label" parent="UI/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
+vertical_alignment = 1
