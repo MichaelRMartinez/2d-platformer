@@ -1,0 +1,145 @@
+[gd_scene load_steps=21 format=3 uid="uid://du5klkcqc6c77"]
+
+[ext_resource type="Texture2D" uid="uid://dp5dj58mmyjob" path="res://assets/images/Cherries.png" id="1_to26l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0uqv"]
+atlas = ExtResource("1_to26l")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4icul"]
+atlas = ExtResource("1_to26l")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_josjw"]
+atlas = ExtResource("1_to26l")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xh67s"]
+atlas = ExtResource("1_to26l")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ub41"]
+atlas = ExtResource("1_to26l")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8uvw"]
+atlas = ExtResource("1_to26l")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gicg1"]
+atlas = ExtResource("1_to26l")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5s81k"]
+atlas = ExtResource("1_to26l")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8sl3"]
+atlas = ExtResource("1_to26l")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gukqm"]
+atlas = ExtResource("1_to26l")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sy1jm"]
+atlas = ExtResource("1_to26l")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbhxc"]
+atlas = ExtResource("1_to26l")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e46u2"]
+atlas = ExtResource("1_to26l")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4opa"]
+atlas = ExtResource("1_to26l")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5ory"]
+atlas = ExtResource("1_to26l")
+region = Rect2(448, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yej1g"]
+atlas = ExtResource("1_to26l")
+region = Rect2(480, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqywd"]
+atlas = ExtResource("1_to26l")
+region = Rect2(512, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j6git"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0uqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4icul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_josjw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xh67s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ub41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8uvw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gicg1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5s81k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8sl3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gukqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sy1jm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbhxc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e46u2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4opa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5ory")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yej1g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqywd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tt7qc"]
+radius = 14.0357
+
+[node name="Collectable" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_j6git")
+autoplay = "default"
+frame_progress = 0.894222
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tt7qc")
