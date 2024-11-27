@@ -173,11 +173,8 @@ sources/0 = SubResource("TileSetAtlasSource_2igmm")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 1157.0
+offset_bottom = 657.0
 texture = ExtResource("1_dp7w4")
 stretch_mode = 1
 metadata/_edit_lock_ = true
