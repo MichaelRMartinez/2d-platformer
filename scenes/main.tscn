@@ -189,3 +189,7 @@ tile_set = SubResource("TileSet_3sc8y")
 
 [node name="Player" parent="." instance=ExtResource("3_rvu3d")]
 position = Vector2(176, 492)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(1, 5)
+position_smoothing_enabled = true
