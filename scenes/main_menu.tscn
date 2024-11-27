@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://ymhjprdy2g8v"]
+
+[ext_resource type="Texture2D" uid="uid://x7ehdpxmer6c" path="res://assets/images/Brown.png" id="1_5v6tw"]
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_64ho1"]
+[ext_resource type="Texture2D" uid="uid://c5dp1wiufakp8" path="res://assets/images/frogmire-text.png" id="2_sb864"]
+
+[node name="MainMenu" type="Node"]
+script = ExtResource("1_64ho1")
+
+[node name="Background" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_5v6tw")
+stretch_mode = 1
+
+[node name="FrogmireLogo" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -387.0
+offset_top = -171.0
+offset_right = 387.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_sb864")
+
+[node name="Button_level1" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -299.0
+offset_top = 22.0
+offset_right = -59.0
+offset_bottom = 93.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Level 1
+"
+
+[node name="Button_level2" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 51.0
+offset_top = 22.0
+offset_right = 291.0
+offset_bottom = 93.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Level 2
+"
+
+[connection signal="pressed" from="Button_level1" to="." method="_on_button_level_1_pressed"]
+[connection signal="pressed" from="Button_level2" to="." method="_on_button_level_2_pressed"]

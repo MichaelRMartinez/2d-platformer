@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://ck0rrah2jnumy"]
+[gd_scene load_steps=10 format=4 uid="uid://ck0rrah2jnumy"]
 
 [ext_resource type="Texture2D" uid="uid://d2pi3sv3b3eqg" path="res://assets/images/Green.png" id="1_dp7w4"]
 [ext_resource type="Texture2D" uid="uid://blq6inelc02te" path="res://assets/images/Terrain (16x16).png" id="2_72rbw"]
 [ext_resource type="PackedScene" uid="uid://l8q1k2hj07ht" path="res://scenes/player.tscn" id="3_rvu3d"]
 [ext_resource type="PackedScene" uid="uid://du5klkcqc6c77" path="res://scenes/collectable.tscn" id="4_n6qgk"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="5_h60lg"]
+[ext_resource type="PackedScene" uid="uid://bqrsmhljqtow5" path="res://scenes/level2.tscn" id="5_jpm08"]
 [ext_resource type="PackedScene" uid="uid://dvk157qcd7cuv" path="res://scenes/finish.tscn" id="6_6y1iw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2igmm"]
@@ -194,6 +195,7 @@ tile_set = SubResource("TileSet_3sc8y")
 
 [node name="Finish" parent="SceneObjects" instance=ExtResource("6_6y1iw")]
 position = Vector2(2039, 255)
+target_level = ExtResource("5_jpm08")
 
 [node name="Player" parent="SceneObjects" instance=ExtResource("3_rvu3d")]
 position = Vector2(176, 492)

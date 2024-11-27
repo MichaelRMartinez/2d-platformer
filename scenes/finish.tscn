@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://dvk157qcd7cuv"]
+[gd_scene load_steps=13 format=3 uid="uid://dvk157qcd7cuv"]
 
 [ext_resource type="Texture2D" uid="uid://bo7m7tkomgg2h" path="res://assets/images/End (Pressed) (64x64).png" id="1_6vsa0"]
+[ext_resource type="Script" path="res://scripts/finish.gd" id="1_o3o16"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fwust"]
 atlas = ExtResource("1_6vsa0")
@@ -70,6 +71,7 @@ animations = [{
 size = Vector2(38, 37)
 
 [node name="Finish" type="Area2D"]
+script = ExtResource("1_o3o16")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -80,3 +82,5 @@ frame_progress = 0.80272
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 13.5)
 shape = SubResource("RectangleShape2D_q5uqj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
