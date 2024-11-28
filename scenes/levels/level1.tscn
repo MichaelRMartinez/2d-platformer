@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://ck0rrah2jnumy"]
+[gd_scene load_steps=14 format=4 uid="uid://ck0rrah2jnumy"]
 
 [ext_resource type="Texture2D" uid="uid://d2pi3sv3b3eqg" path="res://assets/images/environment/Green.png" id="1_dp7w4"]
 [ext_resource type="Texture2D" uid="uid://blq6inelc02te" path="res://assets/images/environment/Terrain (16x16).png" id="2_72rbw"]
@@ -7,7 +7,9 @@
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="5_h60lg"]
 [ext_resource type="PackedScene" uid="uid://bqrsmhljqtow5" path="res://scenes/levels/level2.tscn" id="5_jpm08"]
 [ext_resource type="PackedScene" uid="uid://dvk157qcd7cuv" path="res://scenes/level_objects/finish.tscn" id="6_6y1iw"]
+[ext_resource type="Texture2D" uid="uid://b2dukta3ykie5" path="res://assets/images/player/heart.png" id="8_5hp6m"]
 [ext_resource type="PackedScene" uid="uid://dhfjj8h34xrwt" path="res://scenes/level_objects/fall_area.tscn" id="8_ynvnh"]
+[ext_resource type="Script" path="res://scripts/pause.gd" id="9_mo71q"]
 [ext_resource type="PackedScene" uid="uid://xup1w4suio0s" path="res://scenes/level_objects/enemy.tscn" id="9_xok02"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2igmm"]
@@ -236,13 +238,13 @@ position = Vector2(1586, 318)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="Panel" type="Panel" parent="UI"]
+[node name="PanelPanel" type="Panel" parent="UI"]
 offset_left = 22.0
 offset_top = 13.0
 offset_right = 167.0
 offset_bottom = 58.0
 
-[node name="PointsLabel" type="Label" parent="UI/Panel"]
+[node name="PointsLabel" type="Label" parent="UI/PanelPanel"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -254,14 +256,121 @@ theme_override_font_sizes/font_size = 28
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="HeartsPanel" type="Panel" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -165.0
+offset_top = 18.0
+offset_right = -20.0
+offset_bottom = 63.0
+grow_horizontal = 0
+
+[node name="BoxContainer" type="BoxContainer" parent="UI/HeartsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.5
+offset_top = -18.5
+offset_right = 59.5
+offset_bottom = 18.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Heart" type="TextureRect" parent="UI/HeartsPanel/BoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("8_5hp6m")
+expand_mode = 2
+
+[node name="Heart2" type="TextureRect" parent="UI/HeartsPanel/BoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("8_5hp6m")
+expand_mode = 2
+
+[node name="Heart3" type="TextureRect" parent="UI/HeartsPanel/BoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("8_5hp6m")
+expand_mode = 2
+
+[node name="Pause" type="Node" parent="UI"]
+script = ExtResource("9_mo71q")
+
+[node name="PausePanel" type="Panel" parent="UI/Pause"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -347.0
+offset_top = -204.0
+offset_right = 347.0
+offset_bottom = 204.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI/Pause/PausePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -78.0
+offset_right = 140.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "GAME PAUSED"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Pause/PausePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -23.0
+offset_right = 168.0
+offset_bottom = 93.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="ButtonResume" type="Button" parent="UI/Pause/PausePanel/VBoxContainer"]
+process_mode = 3
+texture_filter = 1
+layout_mode = 2
+text = "Resume"
+
+[node name="ButtonReturnToMainMenu" type="Button" parent="UI/Pause/PausePanel/VBoxContainer"]
+process_mode = 3
+texture_filter = 1
+layout_mode = 2
+text = "Return to Main Menu"
+
+[node name="EnemiesGroup" type="Node" parent="."]
+
+[node name="Enemy" parent="EnemiesGroup" instance=ExtResource("9_xok02")]
+position = Vector2(883, 400)
+
+[node name="Enemy2" parent="EnemiesGroup" instance=ExtResource("9_xok02")]
+position = Vector2(1285, 495)
+
+[node name="Enemy3" parent="EnemiesGroup" instance=ExtResource("9_xok02")]
+position = Vector2(1744, 450)
+
 [node name="FallArea" parent="." instance=ExtResource("8_ynvnh")]
 position = Vector2(1051, 834)
 
-[node name="Enemy" parent="." instance=ExtResource("9_xok02")]
-position = Vector2(883, 400)
-
-[node name="Enemy2" parent="." instance=ExtResource("9_xok02")]
-position = Vector2(1285, 495)
-
-[node name="Enemy3" parent="." instance=ExtResource("9_xok02")]
-position = Vector2(1744, 450)
+[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/ButtonResume" to="UI/Pause" method="_on_button_resume_pressed"]
+[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/ButtonReturnToMainMenu" to="UI/Pause" method="_on_button_return_to_main_menu_pressed"]
