@@ -6,6 +6,9 @@ const JUMP_VELOCITY = -800.0
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 
 
+func jump():
+	velocity.y = JUMP_VELOCITY
+
 func _physics_process(delta: float) -> void:
 	if (velocity.x > 1 || velocity.x < -1):
 		sprite_2d.play("running")
