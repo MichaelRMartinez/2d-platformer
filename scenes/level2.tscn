@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://bqrsmhljqtow5"]
+[gd_scene load_steps=25 format=4 uid="uid://bqrsmhljqtow5"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_07jfn"]
 [ext_resource type="Texture2D" uid="uid://dx04t3n8vruko" path="res://assets/images/Yellow.png" id="2_rnpuv"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://l8q1k2hj07ht" path="res://scenes/player.tscn" id="5_ni13l"]
 [ext_resource type="PackedScene" uid="uid://ymhjprdy2g8v" path="res://scenes/main_menu.tscn" id="5_v66pg"]
 [ext_resource type="PackedScene" uid="uid://du5klkcqc6c77" path="res://scenes/collectable.tscn" id="6_5gj17"]
+[ext_resource type="Texture2D" uid="uid://bsx2r8amrt8ve" path="res://assets/images/enemy/Idle (32x32).png" id="7_crebw"]
 [ext_resource type="Texture2D" uid="uid://b2dukta3ykie5" path="res://assets/images/heart.png" id="8_7iqem"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2igmm"]
@@ -185,6 +186,94 @@ texture = ExtResource("3_ragm1")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_2igmm")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ug5t"]
+atlas = ExtResource("7_crebw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhoiv"]
+atlas = ExtResource("7_crebw")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csulp"]
+atlas = ExtResource("7_crebw")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xb76f"]
+atlas = ExtResource("7_crebw")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jdr7"]
+atlas = ExtResource("7_crebw")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwfm5"]
+atlas = ExtResource("7_crebw")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j56ga"]
+atlas = ExtResource("7_crebw")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_230it"]
+atlas = ExtResource("7_crebw")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvp3o"]
+atlas = ExtResource("7_crebw")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4unl"]
+atlas = ExtResource("7_crebw")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljd05"]
+atlas = ExtResource("7_crebw")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gtvvy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ug5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhoiv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csulp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xb76f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6jdr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwfm5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j56ga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_230it")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvp3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4unl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljd05")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_af8j0"]
+size = Vector2(39, 48)
+
 [node name="Level1" type="Node"]
 
 [node name="GameManager" type="Node" parent="."]
@@ -217,6 +306,19 @@ position = Vector2(41, 586)
 position = Vector2(1, 5)
 position_smoothing_enabled = true
 position_smoothing_speed = 20.0
+
+[node name="RigidBody2D" type="RigidBody2D" parent="SceneObjects"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SceneObjects/RigidBody2D"]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_gtvvy")
+autoplay = "default"
+frame_progress = 0.997157
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneObjects/RigidBody2D"]
+position = Vector2(1.5, 8)
+shape = SubResource("RectangleShape2D_af8j0")
 
 [node name="CollectablesGroup" type="Node" parent="."]
 
