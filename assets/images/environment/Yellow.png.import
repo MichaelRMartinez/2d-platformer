@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5dp1wiufakp8"
-path="res://.godot/imported/frogmire-text.png-f8c2f26c76ad685a74c70bf4176ca91a.ctex"
+uid="uid://dx04t3n8vruko"
+path="res://.godot/imported/Yellow.png-fac4ecf61d2d25fa5fc64f215db60099.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/frogmire-text.png"
-dest_files=["res://.godot/imported/frogmire-text.png-f8c2f26c76ad685a74c70bf4176ca91a.ctex"]
+source_file="res://assets/images/environment/Yellow.png"
+dest_files=["res://.godot/imported/Yellow.png-fac4ecf61d2d25fa5fc64f215db60099.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dp5dj58mmyjob"
-path="res://.godot/imported/Cherries.png-fbbc0eeebe2bfe83bf9ede26cfd53867.ctex"
+path="res://.godot/imported/Cherries.png-189a7706af02e01fed809283f998196b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Cherries.png"
-dest_files=["res://.godot/imported/Cherries.png-fbbc0eeebe2bfe83bf9ede26cfd53867.ctex"]
+source_file="res://assets/images/level_objects/Cherries.png"
+dest_files=["res://.godot/imported/Cherries.png-189a7706af02e01fed809283f998196b.ctex"]
 
 [params]
 
