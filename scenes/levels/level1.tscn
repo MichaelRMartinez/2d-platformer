@@ -217,7 +217,7 @@ position = Vector2(2088, 303)
 target_level = ExtResource("5_jpm08")
 
 [node name="Player" parent="SceneObjects" instance=ExtResource("5_ni13l")]
-position = Vector2(41, 586)
+position = Vector2(40, 592)
 
 [node name="Camera2D" type="Camera2D" parent="SceneObjects/Player"]
 position = Vector2(1, 5)
