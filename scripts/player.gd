@@ -8,6 +8,10 @@ const JUMP_VELOCITY = -800.0
 
 func jump():
 	velocity.y = JUMP_VELOCITY
+	
+func jump_side(x):
+	velocity.y = JUMP_VELOCITY/2
+	velocity.x = x
 
 func _physics_process(delta: float) -> void:
 	if (velocity.x > 1 || velocity.x < -1):
