@@ -5,10 +5,11 @@ const JUMP_VELOCITY = -800.0
 var jump_count = 0
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-
+@export var particle : PackedScene
 
 func jump():
 	velocity.y = JUMP_VELOCITY
+	spawn_particle()
 	
 func jump_side(x):
 	velocity.y = JUMP_VELOCITY/2
@@ -35,6 +36,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and jump_count < 2:
 		velocity.y = JUMP_VELOCITY
 		jump_count += 1
+		if (jump_count == 2):
+			spawn_particle()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -51,3 +54,11 @@ func _physics_process(delta: float) -> void:
 		animated_sprite_2d.flip_h = true
 	if Input.is_action_pressed("right"):
 		animated_sprite_2d.flip_h = false
+
+
+func spawn_particle():
+	var particle_node = particle.instantiate()
+	particle_node.position = position
+	get_parent().add_child(particle_node)
+	await get_tree().create_timer(0.3).timeout
+	particle_node.queue_free()
