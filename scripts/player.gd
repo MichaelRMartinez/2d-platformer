@@ -39,5 +39,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	# update sprite to face left if character is moving left
-	var isLeft = velocity.x < 0
-	sprite_2d.flip_h = isLeft
+	if Input.is_action_pressed("left"):
+		sprite_2d.flip_h = true
+	if Input.is_action_pressed("right"):
+		sprite_2d.flip_h = false
